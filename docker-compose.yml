@@ -1,0 +1,16 @@
+﻿services:
+  citygamebot:
+    image: citygamebot
+    build:
+      context: .
+      dockerfile: CityGameBot/Dockerfile
+    environment:
+      - ASPNETCORE_URLS=https://+;http://+
+      - ASPNETCORE_HTTPS_PORT=8081
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=SERT_PASSWORD
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
+    volumes:
+      - C:\Users\olori\.aspnet\https:/https/
+    ports:
+      - 8080:80
+      - 8081:443
